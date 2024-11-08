@@ -1,0 +1,401 @@
+Mutation testing report:
+Number of mutations:    36
+Killed:                 27 / 36
+
+Mutations:
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/CounterPrimeNumberTokenId.sol
+    Line nr: 21
+    Result: Killed
+    Original line:
+                 for (uint256 i = 3; i * i <= integer; i += 2) {
+
+    Mutated line:
+                 for (uint256 i = 3; i * i < integer; i += 2) {
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/CounterPrimeNumberTokenId.sol
+    Line nr: 18
+    Result: Killed
+    Original line:
+                 if (integer < 2) return false;
+
+    Mutated line:
+                 if (integer >= 2) return false;
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/NFT1.sol
+    Line nr: 171
+    Result: Error
+    Original line:
+                 tokenIdCounter += 1;
+
+    Mutated line:
+                 tokenIdCounter -= 1;
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/NFT1.sol
+    Line nr: 69
+    Result: Killed
+    Original line:
+                 if (excess > 0) {
+
+    Mutated line:
+                 if (excess <= 0) {
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/riddles/Overmint1.sol
+    Line nr: 20
+    Result: Killed
+    Original line:
+                 return balanceOf(_attacker) == 5;
+
+    Mutated line:
+                 return balanceOf(_attacker) != 5;
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/Staking.sol
+    Line nr: 76
+    Result: Lived
+    Original line:
+                 uint256 tokenAmount = (durationInSeconds * 10 ether) / 60 / 60 / 24;
+
+    Mutated line:
+                 uint256 tokenAmount = (durationInSeconds / 10 ether) / 60 / 60 / 24;
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/CounterPrimeNumberTokenId.sol
+    Line nr: 21
+    Result: Killed
+    Original line:
+                 for (uint256 i = 3; i * i <= integer; i += 2) {
+
+    Mutated line:
+                 for (uint256 i = 3; i * i <= integer; i -= 2) {
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/Staking.sol
+    Line nr: 59
+    Result: Killed
+    Original line:
+                 require(stake.originalOwner == msg.sender, "Staking: Not the original owner");
+
+    Mutated line:
+                 require(stake.originalOwner != msg.sender, "Staking: Not the original owner");
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/NFT1.sol
+    Line nr: 81
+    Result: Killed
+    Original line:
+             function setTokenRoyalty(uint256 tokenId, address receiver, uint96 feeNumerator) external onlyOwner {
+
+    Mutated line:
+             function setTokenRoyalty(uint256 tokenId, address receiver, uint96 feeNumerator) external  {
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/Staking.sol
+    Line nr: 44
+    Result: Killed
+    Original line:
+                 require(msg.sender == nft, "Staking: Incorrect NFT contract");
+
+    Mutated line:
+                 require(msg.sender != nft, "Staking: Incorrect NFT contract");
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/CounterPrimeNumberTokenId.sol
+    Line nr: 18
+    Result: Killed
+    Original line:
+                 if (integer < 2) return false;
+
+    Mutated line:
+                 if (integer <= 2) return false;
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/CounterPrimeNumberTokenId.sol
+    Line nr: 22
+    Result: Killed
+    Original line:
+                     if (integer % i == 0) {
+
+    Mutated line:
+                     if (integer % i != 0) {
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/CounterPrimeNumberTokenId.sol
+    Line nr: 20
+    Result: Killed
+    Original line:
+                 if (integer % 2 == 0) return false;
+
+    Mutated line:
+                 if (integer % 2 != 0) return false;
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/Staking.sol
+    Line nr: 73
+    Result: Killed
+    Original line:
+                 require(stake.originalOwner == msg.sender, "Staking: Not the original owner");
+
+    Mutated line:
+                 require(stake.originalOwner != msg.sender, "Staking: Not the original owner");
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/riddles/Overmint1.sol
+    Line nr: 20
+    Result: Killed
+    Original line:
+                 return balanceOf(_attacker) == 5;
+
+    Mutated line:
+                 return balanceOf(_attacker) != 5;
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/riddles/Overmint1.sol
+    Line nr: 13
+    Result: Lived
+    Original line:
+                 require(amountMinted[msg.sender] <= 3, "max 3 NFTs");
+
+    Mutated line:
+                 require(amountMinted[msg.sender] < 3, "max 3 NFTs");
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/NFT2.sol
+    Line nr: 23
+    Result: Killed
+    Original line:
+                 for (uint256 i = 0; i < 100; i++) {
+
+    Mutated line:
+                 for (uint256 i = 0; i >= 100; i++) {
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/NFT1.sol
+    Line nr: 47
+    Result: Killed
+    Original line:
+             function withdrawFunds() external onlyOwner {
+
+    Mutated line:
+             function withdrawFunds() external  {
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/NFT1.sol
+    Line nr: 106
+    Result: Killed
+    Original line:
+                 for (uint256 i = 0; i < amount; i++) {
+
+    Mutated line:
+                 for (uint256 i = 0; i >= amount; i++) {
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/riddles/Overmint2.sol
+    Line nr: 11
+    Result: Killed
+    Original line:
+                 require(balanceOf(msg.sender) <= 3, "max 3 NFTs");
+
+    Mutated line:
+                 require(balanceOf(msg.sender) > 3, "max 3 NFTs");
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/NFT1.sol
+    Line nr: 40
+    Result: Lived
+    Original line:
+                 _setDefaultRoyalty(msg.sender, ROYALTY_FEE_NUMERATOR); // Setting the default royalty fee to the deployer
+
+    Mutated line:
+                  // Setting the default royalty fee to the deployer
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/Staking.sol
+    Line nr: 44
+    Result: Killed
+    Original line:
+                 require(msg.sender == nft, "Staking: Incorrect NFT contract");
+
+    Mutated line:
+                 require(msg.sender != nft, "Staking: Incorrect NFT contract");
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/riddles/Overmint2.sol
+    Line nr: 11
+    Result: Lived
+    Original line:
+                 require(balanceOf(msg.sender) <= 3, "max 3 NFTs");
+
+    Mutated line:
+                 require(balanceOf(msg.sender) < 3, "max 3 NFTs");
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/NFT1.sol
+    Line nr: 169
+    Result: Killed
+    Original line:
+                 require(tokenIdCounter < MAX_SUPPLY, "the supply limit of 1000 is reached");
+
+    Mutated line:
+                 require(tokenIdCounter <= MAX_SUPPLY, "the supply limit of 1000 is reached");
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/NFT1.sol
+    Line nr: 172
+    Result: Killed
+    Original line:
+                 _safeMint(msg.sender, tokenId);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/NFT1.sol
+    Line nr: 115
+    Result: Killed
+    Original line:
+             function setBaseURI(string memory baseURI) public onlyOwner {
+
+    Mutated line:
+             function setBaseURI(string memory baseURI) public  {
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/RewardToken.sol
+    Line nr: 22
+    Result: Equivalent
+    Original line:
+             constructor(string memory name_, string memory symbol_) ERC20(name_, symbol_) {}
+
+    Mutated line:
+             constructor(string memory name_, string memory symbol_)  {}
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/RewardToken.sol
+    Line nr: 25
+    Result: Lived
+    Original line:
+                 _mint(msg.sender, amount);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/riddles/Overmint2.sol
+    Line nr: 17
+    Result: Killed
+    Original line:
+                 return balanceOf(msg.sender) == 5;
+
+    Mutated line:
+                 return balanceOf(msg.sender) != 5;
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/NFT1.sol
+    Line nr: 102
+    Result: Killed
+    Original line:
+                 require(msg.value == DISCOUNTED_MINTING_PRICE, "wrong amount, send 0.05 ETH");
+
+    Mutated line:
+                 require(msg.value != DISCOUNTED_MINTING_PRICE, "wrong amount, send 0.05 ETH");
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/NFT1.sol
+    Line nr: 104
+    Result: Killed
+    Original line:
+                 _verifyProof(proof, index, amount, msg.sender);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/riddles/Overmint2.sol
+    Line nr: 17
+    Result: Killed
+    Original line:
+                 return balanceOf(msg.sender) == 5;
+
+    Mutated line:
+                 return balanceOf(msg.sender) != 5;
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/NFT1.sol
+    Line nr: 36
+    Result: Equivalent
+    Original line:
+             constructor(string memory baseURI, bytes32 merkleRoot_) ERC721("NFT1", "NFT1") {
+
+    Mutated line:
+             constructor(string memory baseURI, bytes32 merkleRoot_)  {
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/NFT1.sol
+    Line nr: 90
+    Result: Killed
+    Original line:
+                 require(msg.value == MINTING_PRICE, "wrong amount, send 0.1 ETH");
+
+    Mutated line:
+                 require(msg.value != MINTING_PRICE, "wrong amount, send 0.1 ETH");
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/Staking.sol
+    Line nr: 76
+    Result: Lived
+    Original line:
+                 uint256 tokenAmount = (durationInSeconds * 10 ether) / 60 / 60 / 24;
+
+    Mutated line:
+                 uint256 tokenAmount = (durationInSeconds * 10 ether) / 60 * 60 / 24;
+
+
+Mutation:
+    File: /home/chenrotte/rareskills/nftVariants/contracts/CounterPrimeNumberTokenId.sol
+    Line nr: 21
+    Result: Killed
+    Original line:
+                 for (uint256 i = 3; i * i <= integer; i += 2) {
+
+    Mutated line:
+                 for (uint256 i = 3; i * i > integer; i += 2) {
+
+
