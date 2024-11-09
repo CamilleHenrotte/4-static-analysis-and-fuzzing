@@ -1,19 +1,14 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.13;
-
+pragma solidity ^0.8.0;
+import {TokenWhaleChallenge} from "../src/TokenWhaleChallenge.sol";
 import {Script, console} from "forge-std/Script.sol";
-import {Counter} from "../src/Counter.sol";
 
-contract CounterScript is Script {
-    Counter public counter;
-
-    function setUp() public {}
-
-    function run() public {
+contract DeployTokenWhaleChallenge is Script {
+    address public immutable ATTACKER = makeAddr("attacker");
+    function run() public returns (TokenWhaleChallenge) {
         vm.startBroadcast();
-
-        counter = new Counter();
-
+        TokenWhaleChallenge token = new TokenWhaleChallenge(ATTACKER);
         vm.stopBroadcast();
+        return token;
     }
 }

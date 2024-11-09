@@ -1,4 +1,4 @@
-pragma solidity =0.4.25;
+pragma solidity ^0.8.0;
 
 contract TokenWhaleChallenge {
     address player;
@@ -11,7 +11,7 @@ contract TokenWhaleChallenge {
     string public symbol = "SET";
     uint8 public decimals = 18;
 
-    function TokenWhaleChallenge(address _player) public {
+    constructor(address _player) {
         player = _player;
         totalSupply = 1000;
         balanceOf[player] = 1000;
@@ -24,8 +24,10 @@ contract TokenWhaleChallenge {
     event Transfer(address indexed from, address indexed to, uint256 value);
 
     function _transfer(address to, uint256 value) internal {
-        balanceOf[msg.sender] -= value;
-        balanceOf[to] += value;
+        unchecked {
+            balanceOf[msg.sender] -= value;
+            balanceOf[to] += value;
+        }
 
         emit Transfer(msg.sender, to, value);
     }
@@ -52,8 +54,9 @@ contract TokenWhaleChallenge {
         require(balanceOf[from] >= value);
         require(balanceOf[to] + value >= balanceOf[to]);
         require(allowance[from][msg.sender] >= value);
-
-        allowance[from][msg.sender] -= value;
+        unchecked {
+            allowance[from][msg.sender] -= value;
+        }
         _transfer(to, value);
     }
 }
