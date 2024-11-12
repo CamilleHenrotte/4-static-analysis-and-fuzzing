@@ -8,27 +8,36 @@ contract DeployDex is Script {
 
     function run() public returns (Dex) {
         vm.startBroadcast();
+
+        // Deploy the Dex contract
         Dex dex = new Dex();
-        vm.prank(ATTACKER);
+
+        // Deploy two SwappableToken contracts with initial supply
         SwappableToken token1 = new SwappableToken(
             address(dex),
             "Token 1",
             "T1",
-            110
+            110 ether
         );
-        vm.prank(ATTACKER);
+
         SwappableToken token2 = new SwappableToken(
             address(dex),
             "Token 2",
             "T2",
-            110
+            110 ether
         );
-        vm.prank(ATTACKER);
-        token1.transfer(dex.address, 100);
-        vm.prank(ATTACKER);
-        token2.transfer(dex.address, 100);
-        dex.setTokens(token1, token2);
+
+        // Set tokens for the Dex contract
+        dex.setTokens(address(token1), address(token2));
+
+        // Transfer initial liquidity to Dex contract
+        token1.transfer(address(dex), 100 ether);
+        token2.transfer(address(dex), 100 ether);
+        token1.transfer(ATTACKER, 10 ether);
+        token2.transfer(ATTACKER, 10 ether);
+
         vm.stopBroadcast();
+
         return dex;
     }
 }

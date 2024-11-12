@@ -1,13 +1,19 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.20;
 
-import "openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
-import "openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
-import "openzeppelin-contracts/contracts/access/Ownable.sol";
+import {IERC20} from "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
+import "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
+import "lib/openzeppelin-contracts/contracts/access/Ownable.sol";
 
 contract Dex is Ownable {
     address public token1;
     address public token2;
+    event SwapAttempt(
+        address indexed from,
+        address to,
+        uint256 amount,
+        address sender
+    );
 
     constructor() Ownable(msg.sender) {}
 
@@ -29,6 +35,7 @@ contract Dex is Ownable {
                 (from == token2 && to == token1),
             "Invalid tokens"
         );
+        emit SwapAttempt(from, to, amount, msg.sender);
         require(
             IERC20(from).balanceOf(msg.sender) >= amount,
             "Not enough to swap"
